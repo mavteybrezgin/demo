@@ -1,0 +1,784 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Мотор и Ход — автосервис, Екатеринбург</title>
+<meta name="description" content="Автосервис «Мотор и Ход»: Екатеринбург, ул. Образцовая, 3. ТО, ходовая, тормоза, развал-схождение. Ремонт начинаем только после вашего согласия. Телефон +7 900 000-00-00.">
+<meta name="theme-color" content="#F2F2EF">
+
+<meta name="robots" content="noindex">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Мотор и Ход — автосервис, Екатеринбург">
+<meta property="og:description" content="Автосервис «Мотор и Ход»: Екатеринбург, ул. Образцовая, 3. ТО, ходовая, тормоза, развал-схождение. Ремонт начинаем только после вашего согласия. Телефон +7 900 000-00-00.">
+<meta property="og:locale" content="ru_RU">
+
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400..800&family=Oswald:wght@500..700&display=swap">
+
+<style>
+:root {
+--bg: #f2f2ef;
+--bg-2: #e8e8e3;
+--ink: #17191d;
+--ink-2: #4a4f58;
+--line: #d6d6cf;
+--graphite: #171c25;
+--surface: #27303e;
+--on-dark: #f5f7fc;
+--on-dark-2: #b7c4d6;
+--line-dark: #333d4d;
+--accent: #F26B1D; --accent-text: #ae4d15; --accent-on-dark: #f26b1d;
+--font-h: 'Oswald', 'Arial Narrow', Impact, sans-serif;
+--font-b: 'Manrope', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+--s1: 4px; --s2: 8px; --s3: 12px; --s4: 16px; --s5: 24px; --s6: 32px; --s7: 48px; --s8: 64px; --s9: 96px;
+--r: 16px; --r-lg: 24px;
+--wrap: 1200px;
+--gut: 16px;
+}
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+html.smooth { scroll-behavior: smooth; }
+body {
+margin: 0; background: var(--bg); color: var(--ink);
+font: 400 16px/1.6 var(--font-b);
+-webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility;
+overflow-x: hidden;
+}
+img { display: block; max-width: 100%; height: auto; }
+a { color: inherit; }
+h1, h2, h3 { margin: 0; font-family: var(--font-h); font-weight: 600; line-height: 1.05; letter-spacing: -0.005em; }
+h3 { font-family: var(--font-b); font-weight: 700; line-height: 1.3; font-size: 17px; letter-spacing: 0; }
+p { margin: 0; }
+ul, ol { margin: 0; padding: 0; list-style: none; }
+[hidden] { display: none !important; }
+:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; border-radius: 6px; }
+.wrap { width: 100%; max-width: var(--wrap); margin: 0 auto; padding: 0 var(--gut); }
+.skip { position: absolute; left: -9999px; top: 8px; z-index: 100; background: var(--ink); color: #fff; padding: 10px 16px; border-radius: 10px; }
+.skip:focus { left: 8px; }
+.ic { width: 20px; height: 20px; flex: none; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.ic-xs { width: 15px; height: 15px; }
+.demo-bar { background: var(--ink); color: var(--on-dark-2); font-size: 13px; line-height: 1.4; text-align: center; padding: 8px var(--gut); }
+.top { position: sticky; top: 0; z-index: 40; background: color-mix(in srgb, var(--bg) 86%, transparent); backdrop-filter: saturate(1.4) blur(12px); -webkit-backdrop-filter: saturate(1.4) blur(12px); border-bottom: 1px solid transparent; transition: border-color .2s; }
+.top.is-stuck { border-bottom-color: var(--line); }
+.top-in { display: flex; align-items: center; gap: var(--s4); height: 60px; }
+.brand { display: flex; align-items: center; gap: 10px; text-decoration: none; min-width: 0; }
+.brand-mark { display: grid; place-items: center; width: 36px; height: 36px; border-radius: 10px; background: var(--graphite); color: var(--on-dark); font: 600 15px/1 var(--font-h); letter-spacing: .02em; box-shadow: inset 0 -3px 0 var(--accent); flex: none; }
+.brand-name { font: 600 18px/1.1 var(--font-h); text-transform: uppercase; letter-spacing: .02em; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.nav { display: none; gap: var(--s5); margin-left: auto; }
+.nav a { text-decoration: none; font-weight: 600; font-size: 15px; color: var(--ink-2); padding: 6px 0; }
+.nav a:hover { color: var(--ink); }
+.top-phone { margin-left: auto; display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-width: 44px; height: 44px; border-radius: 12px; border: 1px solid var(--line); text-decoration: none; font-weight: 700; font-size: 15px; background: #fff; }
+.top-phone span { display: none; }
+.btn-metal {
+--h: 56px;
+position: relative; isolation: isolate; overflow: hidden;
+display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+min-height: var(--h); padding: 0 26px; border-radius: 16px;
+border: 3px solid transparent;
+background:
+linear-gradient(180deg, #353c48 0%, #1d222b 48%, #0e1115 100%) padding-box,
+linear-gradient(180deg, #fbfcfd 0%, #a7aeb8 38%, #e9ecef 58%, #6d747e 100%) border-box;
+color: #f8fafc; font: 700 17px/1 var(--font-b); letter-spacing: .01em; text-decoration: none; cursor: pointer;
+box-shadow: 0 1px 0 rgba(255,255,255,.6), 0 10px 22px -10px rgba(10,14,20,.55), 0 2px 4px rgba(10,14,20,.25);
+transition: transform .15s ease, box-shadow .2s ease;
+-webkit-tap-highlight-color: transparent;
+}
+.btn-metal::before {
+content: ''; position: absolute; inset: 0 0 50% 0; z-index: -1; border-radius: 12px 12px 40% 40% / 12px 12px 14px 14px;
+background: linear-gradient(180deg, rgba(255,255,255,.22), rgba(255,255,255,0));
+}
+.btn-metal::after {
+content: ''; position: absolute; top: -20%; bottom: -20%; left: -60%; width: 40%; z-index: -1;
+background: linear-gradient(100deg, transparent, rgba(255,255,255,.28), transparent);
+transform: translateX(0) skewX(-18deg); transition: transform .8s cubic-bezier(.2,.7,.2,1);
+}
+.btn-metal:hover::after { transform: translateX(420%) skewX(-18deg); }
+.btn-metal:hover { box-shadow: 0 1px 0 rgba(255,255,255,.6), 0 14px 26px -10px rgba(10,14,20,.6), 0 2px 4px rgba(10,14,20,.25); }
+.btn-metal:active { transform: translateY(1px) scale(.99); box-shadow: 0 1px 0 rgba(255,255,255,.5), 0 4px 10px -6px rgba(10,14,20,.6); }
+.btn-metal .ic { width: 20px; height: 20px; }
+.btn-metal--lg { --h: 60px; font-size: 18px; }
+.btn-call, .btn-ghost {
+display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 56px; padding: 0 22px;
+border-radius: 16px; border: 1.5px solid var(--ink); background: transparent; color: var(--ink);
+font: 700 16px/1 var(--font-b); text-decoration: none; cursor: pointer; transition: background .15s, color .15s;
+}
+.btn-call:hover { background: var(--ink); color: var(--bg); }
+.btn-ghost { border-color: var(--line-dark); color: var(--on-dark); min-height: 52px; }
+.btn-ghost:hover { background: var(--surface); }
+.btn-ghost--dark { border-color: var(--line); color: var(--ink); background: #fff; min-height: 48px; padding: 0 18px; font-size: 15px; }
+.btn-ghost--dark:hover { background: var(--bg-2); }
+.hero { padding: var(--s5) 0 var(--s7); }
+.hero-in { display: grid; gap: var(--s6); }
+.hero-kicker { display: inline-flex; align-items: center; gap: 10px; font-weight: 700; font-size: 13px; text-transform: uppercase; letter-spacing: .12em; color: var(--ink-2); }
+.dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 0 4px color-mix(in srgb, var(--accent) 22%, transparent); }
+.hero h1 { margin-top: var(--s3); font-size: clamp(42px, 11.5vw, 92px); text-transform: uppercase; line-height: .95; letter-spacing: -.01em; overflow-wrap: anywhere; }
+.hero-tag { margin-top: var(--s4); font-size: clamp(19px, 4.6vw, 24px); line-height: 1.35; font-weight: 600; max-width: 30ch; }
+.hero-lead { margin-top: var(--s3); color: var(--ink-2); max-width: 46ch; font-size: 16px; }
+.hero-cta { display: grid; grid-template-columns: 1fr; gap: var(--s3); margin-top: var(--s5); }
+.hero-facts { display: grid; gap: var(--s2); margin-top: var(--s5); font-size: 15px; color: var(--ink-2); }
+.hero-facts li { display: flex; align-items: center; gap: 10px; }
+.hero-facts .is-open { color: var(--ink); font-weight: 600; }
+.hero-facts .is-open .ic { color: var(--accent-text); }
+.hero-media { container-type: inline-size; margin: 0; position: relative; border-radius: var(--r-lg); overflow: hidden; aspect-ratio: 4 / 3; background: var(--graphite); box-shadow: 0 30px 60px -30px rgba(23,28,37,.45); }
+.hero-media img { width: 100%; height: 100%; object-fit: cover; object-position: var(--focus, 50% 50%); }
+.hero-media::after { content: ''; position: absolute; inset: 0; border-radius: inherit; box-shadow: inset 0 0 0 1px rgba(255,255,255,.08); pointer-events: none; }
+.hero-art {
+background:
+radial-gradient(120% 90% at 85% 15%, color-mix(in srgb, var(--accent) 55%, transparent) 0%, transparent 55%),
+radial-gradient(80% 70% at 10% 100%, #2a3444 0%, transparent 60%),
+var(--graphite);
+}
+.hero-art--tread::before {
+content: ''; position: absolute; inset: 0; opacity: .55;
+background:
+repeating-linear-gradient(118deg, transparent 0 26px, rgba(255,255,255,.07) 26px 40px),
+repeating-linear-gradient(62deg, transparent 0 26px, rgba(255,255,255,.05) 26px 40px);
+-webkit-mask: linear-gradient(90deg, transparent 0%, #000 45%); mask: linear-gradient(90deg, transparent 0%, #000 45%);
+}
+.hero-art--drops::before {
+content: ''; position: absolute; inset: 0; opacity: .6;
+background: radial-gradient(circle at 50% 50%, rgba(255,255,255,.14) 0 2px, transparent 3px) 0 0 / 22px 22px;
+-webkit-mask: radial-gradient(70% 80% at 80% 30%, #000, transparent 75%); mask: radial-gradient(70% 80% at 80% 30%, #000, transparent 75%);
+}
+.art-ring {
+position: absolute; width: 78%; aspect-ratio: 1; right: -18%; top: 50%; transform: translateY(-50%);
+border-radius: 50%;
+background:
+radial-gradient(circle, transparent 0 30%, #0d1118 30.5% 34%, color-mix(in srgb, var(--accent) 70%, #cfd6df) 34.5% 36%, #0d1118 36.5% 52%, transparent 52.5%),
+repeating-conic-gradient(from 0deg, #1a212c 0 6deg, #10151d 6deg 12deg);
+box-shadow: 0 0 0 10px rgba(255,255,255,.03), 0 40px 80px -20px rgba(0,0,0,.6), inset 0 0 0 2px rgba(255,255,255,.06);
+}
+.hero-art--drops .art-ring {
+background: radial-gradient(circle at 35% 30%, color-mix(in srgb, var(--accent) 65%, #fff) 0%, color-mix(in srgb, var(--accent) 50%, #0d1118) 45%, #0d1118 72%);
+box-shadow: 0 40px 80px -20px rgba(0,0,0,.6), inset -20px -30px 60px rgba(0,0,0,.4);
+width: 60%; right: -8%;
+}
+.hero-art--gear::before {
+content: ''; position: absolute; inset: 0; opacity: .5;
+background:
+linear-gradient(rgba(255,255,255,.06) 1px, transparent 1px) 0 0 / 28px 28px,
+linear-gradient(90deg, rgba(255,255,255,.06) 1px, transparent 1px) 0 0 / 28px 28px;
+-webkit-mask: linear-gradient(120deg, transparent 10%, #000 70%); mask: linear-gradient(120deg, transparent 10%, #000 70%);
+}
+.hero-art--gear .art-ring {
+background:
+radial-gradient(circle, #0d1118 0 16%, color-mix(in srgb, var(--accent) 75%, #cfd6df) 16.5% 19%, #1a212c 19.5% 58%, transparent 58.5%),
+repeating-conic-gradient(from 0deg, #1a212c 0 12deg, transparent 12deg 24deg);
+-webkit-mask: radial-gradient(circle, #000 0 69%, transparent 69.5%); mask: radial-gradient(circle, #000 0 69%, transparent 69.5%);
+box-shadow: none; filter: drop-shadow(0 40px 60px rgba(0,0,0,.55));
+}
+.art-word {
+position: absolute; left: 6%; bottom: 6%; font: 700 14cqw/.9 var(--font-h); text-transform: uppercase; white-space: nowrap;
+color: transparent; -webkit-text-stroke: 1.5px rgba(245,247,252,.34); letter-spacing: .01em;
+}
+.sec { padding: var(--s8) 0; }
+.sec-tight { padding: var(--s7) 0; }
+.sec-dark, .sec-graphite { background: var(--graphite); color: var(--on-dark); }
+.sec-graphite { background: linear-gradient(180deg, var(--graphite), #10141b); }
+.sec-top { margin-bottom: var(--s6); }
+.eyebrow { display: inline-flex; align-items: center; gap: 10px; font-weight: 700; font-size: 13px; letter-spacing: .14em; text-transform: uppercase; color: var(--accent-text); }
+.eyebrow::before { content: ''; width: 22px; height: 2px; background: currentColor; }
+.sec-dark .eyebrow, .sec-graphite .eyebrow { color: var(--accent-on-dark); }
+.sec h2 { margin-top: var(--s3); font-size: clamp(34px, 8.4vw, 60px); text-transform: uppercase; }
+.sec-sub { margin-top: var(--s3); color: var(--ink-2); font-size: 16px; max-width: 52ch; }
+.sec-dark .sec-sub, .sec-graphite .sec-sub { color: var(--on-dark-2); }
+.note { margin-top: var(--s4); font-size: 14px; color: var(--ink-2); }
+.seg { display: flex; gap: 4px; padding: 4px; background: var(--bg-2); border-radius: 14px; margin-bottom: var(--s4); overflow-x: auto; scrollbar-width: none; }
+.seg::-webkit-scrollbar { display: none; }
+.seg-btn { flex: 1 1 auto; min-height: 44px; padding: 0 10px; border: 0; border-radius: 10px; background: transparent; color: var(--ink-2); font: 700 15px/1 var(--font-b); cursor: pointer; white-space: nowrap; }
+.seg-btn[aria-checked='true'] { background: var(--graphite); color: var(--on-dark); box-shadow: inset 0 -3px 0 var(--accent), 0 4px 10px -6px rgba(0,0,0,.5); }
+.svc { border-top: 1px solid var(--line); }
+.svc-row { display: grid; grid-template-columns: 1fr auto; align-items: center; gap: var(--s2) var(--s4); padding: var(--s4) 0; border-bottom: 1px solid var(--line); }
+.svc-head { display: none; }
+.svc-name h3 { font-size: 18px; }
+.svc-name p { margin-top: 2px; font-size: 14px; color: var(--ink-2); line-height: 1.45; }
+.svc-dur { display: inline-flex; align-items: center; gap: 6px; }
+.p { display: none; font: 600 22px/1.1 var(--font-h); white-space: nowrap; text-align: right; grid-column: 2; grid-row: 1; }
+.p-one { display: block; }
+.p-lbl { display: none; }
+.svc-pick { grid-column: 1 / -1; justify-self: start; display: inline-flex; align-items: center; gap: 6px; min-height: 40px; padding: 0 14px 0 10px; border-radius: 10px; background: var(--bg-2); color: var(--ink); text-decoration: none; font-weight: 700; font-size: 14px; }
+.svc-pick:hover { background: var(--graphite); color: var(--on-dark); }
+.svc-pick .ic { width: 16px; height: 16px; }
+.facts { display: grid; gap: var(--s3); }
+.fact { position: relative; padding: var(--s5); border-radius: var(--r); background: var(--surface); border: 1px solid var(--line-dark); overflow: hidden; }
+.fact::after { content: ''; position: absolute; left: 0; top: var(--s5); width: 3px; height: 28px; background: var(--accent); border-radius: 0 3px 3px 0; }
+.fact-n { display: block; font: 600 14px/1 var(--font-h); color: var(--on-dark-2); letter-spacing: .1em; margin-bottom: var(--s4); }
+.fact h3 { font-size: 20px; color: var(--on-dark); }
+.fact p { margin-top: var(--s2); color: var(--on-dark-2); font-size: 15px; }
+.steps { display: grid; gap: 0; counter-reset: st; }
+.step { position: relative; display: grid; align-content: start; grid-template-columns: 44px 1fr; gap: var(--s4); padding-bottom: var(--s5); }
+.step:not(:last-child)::before { content: ''; position: absolute; left: 21px; top: 44px; bottom: 0; width: 2px; background: var(--line); }
+.step-n { display: grid; place-items: center; width: 44px; height: 44px; border-radius: 50%; background: var(--graphite); color: var(--on-dark); font: 600 18px/1 var(--font-h); box-shadow: inset 0 -3px 0 var(--accent); }
+.step h3 { font-size: 18px; padding-top: 9px; }
+.step p { margin-top: 4px; color: var(--ink-2); font-size: 15px; max-width: 42ch; }
+.gallery { display: grid; grid-auto-flow: column; grid-auto-columns: 78%; gap: var(--s3); overflow-x: auto; scroll-snap-type: x mandatory; margin: 0 calc(var(--gut) * -1); padding: 0 var(--gut) var(--s2); scrollbar-width: thin; }
+.gallery li { scroll-snap-align: start; }
+.gallery figure { margin: 0; border-radius: var(--r); overflow: hidden; aspect-ratio: 4 / 5; background: var(--surface); }
+.gallery img { width: 100%; height: 100%; object-fit: cover; }
+.gallery figcaption { padding: var(--s2) var(--s3); font-size: 14px; color: var(--on-dark-2); }
+.rating { display: grid; grid-template-columns: auto 1fr; align-items: center; gap: var(--s2) var(--s4); padding: var(--s5); border-radius: var(--r-lg); background: #fff; border: 1px solid var(--line); text-decoration: none; }
+.rating-val { font: 600 56px/1 var(--font-h); grid-row: span 2; }
+.stars { position: relative; display: inline-flex; }
+.stars-row { display: inline-flex; gap: 2px; }
+.stars-fg { position: absolute; inset: 0 auto 0 0; overflow: hidden; }
+.st { width: 20px; height: 20px; flex: none; fill: #d9d9d2; stroke: none; }
+.stars-fg .st { fill: #f5a623; }
+.rating-body { display: grid; gap: 4px; }
+.rating-txt { font-size: 14px; color: var(--ink-2); }
+.rating-go { grid-column: 2; display: inline-flex; align-items: center; gap: 6px; font-weight: 700; font-size: 14px; color: var(--accent-text); }
+.book { display: grid; gap: var(--s6); }
+.book-or { margin-top: var(--s4); color: var(--on-dark-2); font-size: 15px; }
+.book-or a { color: var(--on-dark); font-weight: 700; white-space: nowrap; }
+.book-form { display: grid; gap: var(--s4); padding: var(--s5); border-radius: var(--r-lg); background: var(--surface); border: 1px solid var(--line-dark); }
+.f { display: grid; gap: var(--s2); border: 0; margin: 0; padding: 0; min-width: 0; }
+.f label, .f legend { font-weight: 700; font-size: 14px; color: var(--on-dark); padding: 0; }
+.opt { font-weight: 500; color: var(--on-dark-2); }
+.f-2 { display: grid; grid-template-columns: 1fr 1fr; gap: var(--s3); }
+.f select, .f input[type='text'] {
+width: 100%; min-height: 52px; padding: 0 14px; border-radius: 12px; border: 1.5px solid var(--line-dark); background: var(--graphite); color: var(--on-dark);
+font: 500 16px/1.2 var(--font-b); appearance: none; -webkit-appearance: none;
+}
+.f select { background-image: linear-gradient(45deg, transparent 50%, var(--on-dark-2) 50%), linear-gradient(135deg, var(--on-dark-2) 50%, transparent 50%); background-position: calc(100% - 20px) 50%, calc(100% - 15px) 50%; background-size: 5px 5px; background-repeat: no-repeat; padding-right: 36px; }
+.f input::placeholder { color: #7d8aa0; }
+.f select:focus-visible, .f input:focus-visible { outline: 3px solid var(--accent); outline-offset: 1px; border-color: transparent; }
+.chips { display: flex; flex-wrap: wrap; gap: var(--s2); }
+.chip input { position: absolute; opacity: 0; width: 1px; height: 1px; }
+.chip span { display: inline-flex; align-items: center; min-height: 44px; padding: 0 16px; border-radius: 12px; border: 1.5px solid var(--line-dark); font-weight: 700; font-size: 15px; cursor: pointer; color: var(--on-dark-2); }
+.chip input:checked + span { background: var(--on-dark); color: var(--graphite); border-color: var(--on-dark); box-shadow: inset 0 -3px 0 var(--accent); }
+.chip input:focus-visible + span { outline: 3px solid var(--accent); outline-offset: 2px; }
+.sum { display: flex; justify-content: space-between; align-items: baseline; gap: var(--s3); padding: var(--s4) 0 0; border-top: 1px dashed var(--line-dark); }
+.sum-l { color: var(--on-dark-2); font-size: 15px; }
+.sum-p { font: 600 26px/1 var(--font-h); white-space: nowrap; color: var(--on-dark); }
+.sum-p--ask { font: 600 15px/1.3 var(--font-b); white-space: normal; text-align: right; color: var(--on-dark-2); }
+.book-actions { display: grid; gap: var(--s2); }
+.book-actions .btn-metal { width: 100%; }
+.fine { font-size: 13px; color: var(--on-dark-2); line-height: 1.5; }
+.fine.is-sent { color: var(--on-dark); font-weight: 600; padding: var(--s3); border-radius: 12px; background: color-mix(in srgb, var(--accent) 22%, transparent); }
+.book-simple { display: grid; gap: var(--s5); align-items: center; }
+.faq { border-top: 1px solid var(--line); }
+.faq details { border-bottom: 1px solid var(--line); }
+.faq summary { display: flex; justify-content: space-between; align-items: center; gap: var(--s4); padding: var(--s4) 0; min-height: 56px; cursor: pointer; list-style: none; font-weight: 700; font-size: 17px; line-height: 1.35; }
+.faq summary::-webkit-details-marker { display: none; }
+.faq-ic { transition: transform .2s; color: var(--ink-2); }
+.faq details[open] .faq-ic { transform: rotate(45deg); }
+.faq details p { padding: 0 0 var(--s5); color: var(--ink-2); max-width: 64ch; }
+.sec-contacts { background: var(--bg-2); }
+.contacts { display: grid; gap: var(--s6); }
+.addr { display: flex; gap: 10px; align-items: flex-start; margin-top: var(--s4); font-size: 18px; font-weight: 600; }
+.addr .ic { margin-top: 4px; color: var(--accent-text); }
+.contact-btns { display: flex; flex-wrap: wrap; gap: var(--s2); margin-top: var(--s4); }
+.big-phone { display: inline-flex; align-items: center; gap: 12px; margin-top: var(--s5); font: 600 clamp(28px, 7vw, 38px)/1 var(--font-h); text-decoration: none; letter-spacing: .01em; }
+.big-phone .ic { width: 26px; height: 26px; color: var(--accent-text); }
+.hours-h { margin-top: var(--s6); font-size: 15px; text-transform: uppercase; letter-spacing: .1em; color: var(--ink-2); }
+.hours { margin-top: var(--s2); max-width: 320px; }
+.hours li { display: flex; justify-content: space-between; padding: 8px 10px; border-radius: 8px; font-variant-numeric: tabular-nums; }
+.hours li.is-today { background: #fff; font-weight: 700; box-shadow: inset 3px 0 0 var(--accent); }
+.map { border-radius: var(--r-lg); overflow: hidden; min-height: 340px; background: #dcdcd5; border: 1px solid var(--line); }
+.map iframe { display: block; width: 100%; height: 100%; min-height: 340px; border: 0; }
+.map--leaflet { position: relative; height: 340px; z-index: 0; isolation: isolate; }
+.map-fallback { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; gap: 8px; font-weight: 700; text-decoration: none; color: var(--ink-2); }
+.map--leaflet .leaflet-container, .map--leaflet.leaflet-container { font-family: var(--font-b); background: #e4e4de; }
+.map[data-style='light'] .leaflet-tile-pane { filter: grayscale(1) contrast(1.12) brightness(.97); }
+.map[data-style='dark'] .leaflet-tile-pane { filter: invert(1) hue-rotate(180deg) grayscale(.85) brightness(.85) contrast(.9); }
+.map[data-style='dark'].leaflet-container { background: #1d222a; }
+.map .leaflet-control-zoom { border: 0; box-shadow: 0 6px 16px -8px rgba(0,0,0,.35); border-radius: 12px; overflow: hidden; }
+.map .leaflet-control-zoom a { width: 40px; height: 40px; line-height: 40px; color: var(--ink); font: 600 20px/40px var(--font-b); }
+.map .leaflet-control-attribution { font-size: 11px; background: rgba(255,255,255,.8); border-radius: 8px 0 0 0; }
+.map.is-locked::after { content: 'Нажмите, чтобы двигать карту'; position: absolute; left: 50%; bottom: 14px; transform: translateX(-50%); z-index: 1000; padding: 6px 12px; border-radius: 999px; background: rgba(23,25,29,.78); color: #fff; font-size: 13px; font-weight: 600; pointer-events: none; white-space: nowrap; }
+.pin { background: none; border: 0; }
+.pin-in {
+position: relative; display: grid; place-items: center; width: 48px; height: 48px; border-radius: 50% 50% 50% 4px; transform: rotate(-45deg);
+background: var(--graphite); box-shadow: inset 0 0 0 3px var(--accent), 0 10px 20px -6px rgba(0,0,0,.5);
+color: #fff; font: 600 15px/1 var(--font-h); letter-spacing: .02em;
+}
+.pin-in b { transform: rotate(45deg); font-weight: 600; }
+.foot { background: var(--graphite); color: var(--on-dark-2); padding: var(--s6) 0 calc(var(--s6) + 80px); font-size: 14px; }
+.foot strong { color: var(--on-dark); }
+.foot-in { display: grid; gap: var(--s2); }
+.foot a { color: var(--on-dark); }
+.dock {
+position: fixed; left: 0; right: 0; bottom: 0; z-index: 50; display: grid; grid-template-columns: auto 1fr; gap: var(--s2);
+padding: 10px var(--gut) calc(10px + env(safe-area-inset-bottom)); background: color-mix(in srgb, var(--bg) 92%, transparent);
+backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-top: 1px solid var(--line);
+transform: translateY(110%); transition: transform .25s ease; visibility: hidden;
+}
+.dock.is-on { transform: none; visibility: visible; }
+.dock-call { display: inline-flex; align-items: center; gap: 8px; min-height: 52px; padding: 0 18px; border-radius: 14px; border: 1.5px solid var(--ink); text-decoration: none; font-weight: 700; }
+.dock .btn-metal { --h: 52px; }
+@media (min-width: 560px) {
+:root { --gut: 24px; }
+.hero-cta { grid-template-columns: auto auto; justify-content: start; }
+.top-phone { padding: 0 14px; }
+.top-phone span { display: inline; }
+.facts { grid-template-columns: 1fr 1fr; }
+.gallery { grid-auto-columns: 46%; }
+.book-actions { grid-template-columns: 1fr; }
+}
+@media (min-width: 900px) {
+:root { --gut: 32px; }
+.nav { display: flex; }
+.top-phone { margin-left: var(--s5); }
+.top-in { height: 72px; }
+.hero { padding: var(--s7) 0 var(--s9); }
+.hero-in { grid-template-columns: 1.05fr .95fr; align-items: center; gap: var(--s7); }
+.hero-media { aspect-ratio: 4 / 5; }
+.hero--art .hero-media { aspect-ratio: 1 / 1.05; }
+.sec { padding: var(--s9) 0; }
+.sec-tight { padding: var(--s8) 0; }
+.facts { grid-template-columns: repeat(3, 1fr); }
+.steps { grid-template-columns: repeat(var(--n, 4), 1fr); gap: var(--s5); }
+.step { grid-template-columns: 1fr; gap: var(--s4); padding: 0; }
+.step:not(:last-child)::before { left: 56px; right: calc(var(--s5) * -1); top: 21px; bottom: auto; width: auto; height: 2px; }
+.step h3 { padding-top: 0; }
+.gallery { grid-auto-flow: row; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); overflow: visible; margin: 0; padding: 0; }
+.book { grid-template-columns: .9fr 1.1fr; align-items: start; gap: var(--s8); }
+.book-intro { position: sticky; top: 110px; }
+.book-simple { grid-template-columns: 1fr auto; }
+.faq-wrap { display: grid; grid-template-columns: .8fr 1.2fr; gap: var(--s8); }
+.contacts { grid-template-columns: .85fr 1.15fr; gap: var(--s8); }
+.map, .map iframe { min-height: 520px; }
+.map--leaflet { height: 520px; }
+.dock { display: none; }
+.foot { padding-bottom: var(--s6); }
+.foot-in { grid-template-columns: 1fr auto; }
+.seg { display: none; }
+.svc-head { display: grid; padding: var(--s3) 0; font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; color: var(--ink-2); }
+.svc-head .p { font: inherit; }
+.svc-row { grid-template-columns: minmax(0, 1fr) repeat(var(--cols, 1), 120px) 150px; padding: var(--s5) 0; }
+.svc .p { display: block; grid-row: auto; grid-column: auto; }
+.svc .p-one { grid-column: 2 / span var(--cols, 1); }
+.svc-pick { grid-column: auto; justify-self: end; }
+}
+@media (prefers-reduced-motion: reduce) {
+*, *::before, *::after { transition-duration: .01ms !important; animation-duration: .01ms !important; }
+.btn-metal::after { display: none; }
+}
+</style>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"AutoRepair","name":"Мотор и Ход","description":"Автосервис «Мотор и Ход»: Екатеринбург, ул. Образцовая, 3. ТО, ходовая, тормоза, развал-схождение. Ремонт начинаем только после вашего согласия. Телефон +7 900 000-00-00.","telephone":"+79000000000","address":{"@type":"PostalAddress","streetAddress":"ул. Образцовая, 3","addressLocality":"Екатеринбург","addressCountry":"RU"},"geo":{"@type":"GeoCoordinates","latitude":56.826431,"longitude":60.594332},"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":"Monday","opens":"09:00","closes":"20:00"},{"@type":"OpeningHoursSpecification","dayOfWeek":"Tuesday","opens":"09:00","closes":"20:00"},{"@type":"OpeningHoursSpecification","dayOfWeek":"Wednesday","opens":"09:00","closes":"20:00"},{"@type":"OpeningHoursSpecification","dayOfWeek":"Thursday","opens":"09:00","closes":"20:00"},{"@type":"OpeningHoursSpecification","dayOfWeek":"Friday","opens":"09:00","closes":"20:00"},{"@type":"OpeningHoursSpecification","dayOfWeek":"Saturday","opens":"10:00","closes":"18:00"},{"@type":"OpeningHoursSpecification","dayOfWeek":"Sunday","opens":"10:00","closes":"18:00"}],"sameAs":["https://t.me/MatveyBrezgin"]}</script>
+</head>
+<body>
+<a class="skip" href="#main">К содержанию</a>
+<div class="demo-bar" role="note">Пример сайта: автосервис выдуманный, цены и данные условные.</div>
+<header class="top" data-top>
+  <div class="wrap top-in">
+    <a class="brand" href="#main" aria-label="Мотор и Ход — наверх">
+      <span class="brand-mark" aria-hidden="true">МИ</span>
+      <span class="brand-name">Мотор и Ход</span>
+    </a>
+    <nav class="nav" aria-label="Разделы">
+      <a href="#prices">Цены</a><a href="#why">О нас</a><a href="#contacts">Контакты</a>
+    </nav>
+    <a class="top-phone" href="tel:+79000000000"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg><span>+7 900 000-00-00</span></a>
+  </div>
+</header>
+
+<main id="main">
+<section class="hero hero--art" aria-labelledby="hero-h">
+  <div class="wrap hero-in">
+    <div class="hero-copy">
+      <p class="hero-kicker"><span class="dot" aria-hidden="true"></span>Автосервис · Екатеринбург</p>
+      <h1 id="hero-h">Мотор и Ход</h1>
+      <p class="hero-tag">Диагностика и ремонт без сюрпризов: цену называем до начала работ</p>
+      <p class="hero-lead">ТО, ходовая, тормоза, развал-схождение. Ремонт начинаем только после вашего согласия.</p>
+      <div class="hero-cta">
+        <a class="btn-metal btn-metal--lg" href="#book"><span>Записаться</span><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a class="btn-call" href="tel:+79000000000"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg><span>Позвонить</span></a>
+      </div>
+      <ul class="hero-facts">
+        <li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg><span>ул. Образцовая, 3</span></li>
+        <li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg><span data-open-status>Пн–Пт: 09:00–20:00</span></li>
+      </ul>
+    </div>
+    <figure class="hero-media hero-art hero-art--gear" aria-hidden="true">
+    <div class="art-ring"></div>
+    <span class="art-word">Автосервис</span>
+  </figure>
+  </div>
+</section>
+
+<section class="sec sec-light" id="prices" aria-labelledby="prices-h">
+    <div class="wrap">
+      <div class="sec-top">
+        <p class="eyebrow">Услуги и цены</p>
+        <h2 id="prices-h">Сколько стоит</h2>
+        
+      </div>
+      
+      <ul class="svc" style="--cols:1" data-cols="0" data-active="" data-svc>
+        <li class="svc-row">
+        <div class="svc-name"><h3>Компьютерная диагностика</h3><p>Считываем ошибки, проверяем датчики и системы</p><p class="svc-dur"><svg class="ic ic-xs" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>30–60 мин</p></div>
+        <span class="p p-one">от 1 000 ₽</span>
+        <a class="svc-pick" href="#book" data-pick="0" aria-label="Записаться: Компьютерная диагностика"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 5v14M5 12h14"/></svg><span>Записаться</span></a>
+      </li><li class="svc-row">
+        <div class="svc-name"><h3>Замена масла и фильтра</h3><p>Работа; масло и фильтр — ваши или подберём</p><p class="svc-dur"><svg class="ic ic-xs" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>30 мин</p></div>
+        <span class="p p-one">от 800 ₽</span>
+        <a class="svc-pick" href="#book" data-pick="1" aria-label="Записаться: Замена масла и фильтра"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 5v14M5 12h14"/></svg><span>Записаться</span></a>
+      </li><li class="svc-row">
+        <div class="svc-name"><h3>ТО по регламенту</h3><p>Плановое обслуживание по пробегу</p></div>
+        <span class="p p-one">от 3 000 ₽</span>
+        <a class="svc-pick" href="#book" data-pick="2" aria-label="Записаться: ТО по регламенту"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 5v14M5 12h14"/></svg><span>Записаться</span></a>
+      </li><li class="svc-row">
+        <div class="svc-name"><h3>Замена тормозных колодок</h3><p>Одна ось, с проверкой дисков</p><p class="svc-dur"><svg class="ic ic-xs" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>1 час</p></div>
+        <span class="p p-one">от 1 200 ₽</span>
+        <a class="svc-pick" href="#book" data-pick="3" aria-label="Записаться: Замена тормозных колодок"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 5v14M5 12h14"/></svg><span>Записаться</span></a>
+      </li><li class="svc-row">
+        <div class="svc-name"><h3>Развал-схождение</h3><p>Регулировка углов установки колёс</p><p class="svc-dur"><svg class="ic ic-xs" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>40 мин</p></div>
+        <span class="p p-one">от 1 500 ₽</span>
+        <a class="svc-pick" href="#book" data-pick="4" aria-label="Записаться: Развал-схождение"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 5v14M5 12h14"/></svg><span>Записаться</span></a>
+      </li><li class="svc-row">
+        <div class="svc-name"><h3>Ремонт подвески</h3><p>Цену назовём после диагностики</p></div>
+        <span class="p p-one">по запросу</span>
+        <a class="svc-pick" href="#book" data-pick="5" aria-label="Записаться: Ремонт подвески"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 5v14M5 12h14"/></svg><span>Записаться</span></a>
+      </li>
+      </ul>
+      <p class="note">Цены за работу, без учёта запчастей. Точную стоимость мастер назовёт после диагностики, до начала ремонта.</p>
+    </div>
+  </section>
+<section class="sec sec-dark" id="why" aria-labelledby="why-h">
+    <div class="wrap">
+      <div class="sec-top"><p class="eyebrow">Почему к нам</p><h2 id="why-h">Коротко о главном</h2></div>
+      <ol class="facts">
+        <li class="fact"><span class="fact-n">01</span><h3>Без выходных</h3><p>Будни 9:00–20:00, выходные 10:00–18:00.</p></li><li class="fact"><span class="fact-n">02</span><h3>Цена до ремонта</h3><p>Сначала диагностика и смета, потом работа — только с вашего согласия.</p></li><li class="fact"><span class="fact-n">03</span><h3>Пример факта</h3><p>Сюда — то, что правда о сервисе: число подъёмников, марки, стаж мастеров.</p></li>
+      </ol>
+    </div>
+  </section>
+<section class="sec sec-light" id="steps" aria-labelledby="steps-h">
+    <div class="wrap">
+      <div class="sec-top"><p class="eyebrow">Как мы работаем</p><h2 id="steps-h">От заявки до выдачи</h2></div>
+      <ol class="steps" style="--n:4">
+        <li class="step"><span class="step-n" aria-hidden="true">1</span><div><h3>Заявка</h3><p>Оставляете заявку или звоните, коротко описываете, что беспокоит.</p></div></li><li class="step"><span class="step-n" aria-hidden="true">2</span><div><h3>Диагностика</h3><p>Мастер находит причину и называет стоимость работ и запчастей.</p></div></li><li class="step"><span class="step-n" aria-hidden="true">3</span><div><h3>Согласование</h3><p>Ремонт начинаем только после вашего согласия. Лишнего без вас не делаем.</p></div></li><li class="step"><span class="step-n" aria-hidden="true">4</span><div><h3>Ремонт и выдача</h3><p>Выполняем работу, показываем, что сделано, и отдаём машину.</p></div></li>
+      </ol>
+    </div>
+  </section>
+
+
+<section class="sec sec-graphite" id="book" aria-labelledby="book-h">
+    <div class="wrap book">
+      <div class="book-intro">
+        <p class="eyebrow">Запись</p>
+        <h2 id="book-h">Запись на диагностику и ремонт</h2>
+        <p class="sec-sub">Опишите, что беспокоит, и выберите удобный день — мастер посмотрит машину и назовёт цену. Сообщение уйдёт в Telegram, мастер ответит и подтвердит время.</p>
+        <p class="book-or">Или сразу позвоните: <a href="tel:+79000000000">+7 900 000-00-00</a></p>
+      </div>
+      <form class="book-form" data-book novalidate>
+        <div class="f">
+          <label for="f-svc">Услуга</label>
+          <select id="f-svc" name="svc"><option value="0">Компьютерная диагностика</option><option value="1">Замена масла и фильтра</option><option value="2">ТО по регламенту</option><option value="3">Замена тормозных колодок</option><option value="4">Развал-схождение</option><option value="5">Ремонт подвески</option></select>
+        </div>
+        
+        <div class="f-2">
+          <div class="f">
+            <label for="f-day">День</label>
+            <select id="f-day" name="day" data-days><option value="">Ближайший</option></select>
+          </div>
+          <div class="f">
+            <label for="f-time">Время</label>
+            <select id="f-time" name="time" data-times><option value="">Любое</option></select>
+          </div>
+        </div>
+        <div class="f">
+          <label for="f-name">Как к вам обращаться <span class="opt">(необязательно)</span></label>
+          <input id="f-name" name="name" type="text" autocomplete="given-name" maxlength="60">
+        </div>
+        <div class="f">
+          <label for="f-car">Машина и что беспокоит <span class="opt">(необязательно)</span></label>
+          <input id="f-car" name="car" type="text" maxlength="160" placeholder="Например: Kia Rio 2018, стук спереди справа">
+        </div>
+        <div class="sum" data-sum aria-live="polite"></div>
+        <div class="book-actions"><button type="submit" class="btn-metal" name="via" value="tg"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m22 2-11 11M22 2l-7 20-4-9-9-4 20-7z"/></svg><span>Отправить в Telegram</span></button><button type="submit" class="btn-ghost" name="via" value="sms"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg><span>Через SMS</span></button></div>
+        <p class="fine" data-status role="status">Это заявка, а не готовая запись: время подтвердит мастер.</p>
+      </form>
+    </div>
+  </section>
+<section class="sec sec-light" id="faq" aria-labelledby="faq-h">
+    <div class="wrap faq-wrap">
+      <div class="sec-top"><p class="eyebrow">Вопросы</p><h2 id="faq-h">Частые вопросы</h2></div>
+      <div class="faq">
+        <details><summary><span>Можно приехать со своими запчастями?</span><svg class="ic faq-ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 5v14M5 12h14"/></svg></summary><p>Уточните у мастера по телефону — для части работ это возможно.</p></details><details><summary><span>Сколько стоит ремонт?</span><svg class="ic faq-ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 5v14M5 12h14"/></svg></summary><p>На сайте — цены за работу «от». Точную сумму с запчастями мастер назовёт после диагностики, и ремонт начнётся только после вашего согласия.</p></details><details><summary><span>Сколько времени займёт ремонт?</span><svg class="ic faq-ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 5v14M5 12h14"/></svg></summary><p>Простые работы — в день обращения, сложные — по договорённости. Срок мастер скажет после диагностики.</p></details><details><summary><span>С какими машинами работаете?</span><svg class="ic faq-ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 5v14M5 12h14"/></svg></summary><p>Назовите марку и модель по телефону или в заявке — сразу скажем, возьмёмся ли.</p></details>
+      </div>
+    </div>
+  </section>
+<section class="sec sec-light sec-contacts" id="contacts" aria-labelledby="contacts-h">
+    <div class="wrap contacts">
+      <div class="contacts-info">
+        <p class="eyebrow">Контакты</p>
+        <h2 id="contacts-h">Как нас найти</h2>
+        <p class="addr"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg><span>Екатеринбург, ул. Образцовая, 3</span></p>
+        <div class="contact-btns">
+          <a class="btn-ghost btn-ghost--dark" href="https://yandex.ru/maps/?rtext=~56.826431,60.594332&rtt=auto" target="_blank" rel="noopener"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3 11 22 2l-9 19-2-8-8-2z"/></svg><span>Маршрут</span></a>
+          
+        </div>
+        <a class="big-phone" href="tel:+79000000000"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg><span>+7 900 000-00-00</span></a>
+        <div class="contact-btns"><a class="btn-ghost btn-ghost--dark" href="https://t.me/MatveyBrezgin" target="_blank" rel="noopener"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m22 2-11 11M22 2l-7 20-4-9-9-4 20-7z"/></svg><span>Telegram</span></a></div>
+        <h3 class="hours-h">Часы работы</h3>
+        <ul class="hours" data-hours><li data-wd="mon tue wed thu fri"><span>Пн–Пт</span><span>09:00–20:00</span></li><li data-wd="sat sun"><span>Сб–Вс</span><span>10:00–18:00</span></li></ul>
+      </div>
+      <div class="map map--leaflet" data-map data-style="light"
+        data-lat="56.826431" data-lng="60.594332" role="region" aria-label="Карта: Мотор и Ход, ул. Образцовая, 3">
+        <a class="map-fallback" href="https://www.openstreetmap.org/?mlat=56.826431&amp;mlon=60.594332#map=17/56.826431/60.594332" target="_blank" rel="noopener"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg><span>Открыть карту</span></a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap foot-in">
+    <p><strong>Мотор и Ход</strong> · Екатеринбург, ул. Образцовая, 3</p>
+    <p>Пн–Пт: 09:00–20:00 · Сб–Вс: 10:00–18:00 · <a href="tel:+79000000000">+7 900 000-00-00</a></p>
+  </div>
+</footer>
+
+<div class="dock" data-dock aria-hidden="true">
+  <a class="dock-call" href="tel:+79000000000" tabindex="-1"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg><span>Позвонить</span></a>
+  <a class="btn-metal dock-book" href="#book" tabindex="-1"><span>Записаться</span></a>
+</div>
+
+<script type="application/json" id="cfg">{"name":"Мотор и Ход","tz":"Asia/Yekaterinburg","hours":{"mon":{"open":"09:00","close":"20:00"},"tue":{"open":"09:00","close":"20:00"},"wed":{"open":"09:00","close":"20:00"},"thu":{"open":"09:00","close":"20:00"},"fri":{"open":"09:00","close":"20:00"},"sat":{"open":"10:00","close":"18:00"},"sun":{"open":"10:00","close":"18:00"}},"services":[{"name":"Компьютерная диагностика","prices":null,"price":1000,"from":true},{"name":"Замена масла и фильтра","prices":null,"price":800,"from":true},{"name":"ТО по регламенту","prices":null,"price":3000,"from":true},{"name":"Замена тормозных колодок","prices":null,"price":1200,"from":true},{"name":"Развал-схождение","prices":null,"price":1500,"from":true},{"name":"Ремонт подвески","prices":null,"price":null,"from":false}],"cols":[],"channels":[{"id":"tg","label":"Telegram","to":"MatveyBrezgin"},{"id":"sms","label":"SMS","to":"+79000000000"}],"phone":"+79000000000"}</script>
+<script>// Небольшой скрипт сайта: переключение цен, «открыто сейчас», нижняя панель и заявка в мессенджер.
+// Без него сайт тоже работает: цены видны, телефон и карта доступны.
+;(function () {
+  var cfg = JSON.parse(document.getElementById('cfg').textContent)
+  var KEYS = ['sun', 'mon', 'tue', 'wed', 'thu', 'fri', 'sat']
+  var MONTHS = ['января', 'февраля', 'марта', 'апреля', 'мая', 'июня', 'июля', 'августа', 'сентября', 'октября', 'ноября', 'декабря']
+  var WD = ['вс', 'пн', 'вт', 'ср', 'чт', 'пт', 'сб']
+
+  function rub(n) {
+    return Number(n).toLocaleString('ru-RU').replace(/\s/g, ' ') + ' ₽'
+  }
+
+  // Текущее время в часовом поясе точки (а не посетителя).
+  function nowAtPlace() {
+    try {
+      var parts = new Intl.DateTimeFormat('en-GB', {
+        timeZone: cfg.tz, year: 'numeric', month: '2-digit', day: '2-digit',
+        hour: '2-digit', minute: '2-digit', hour12: false,
+      }).formatToParts(new Date())
+      var o = {}
+      parts.forEach(function (p) { o[p.type] = p.value })
+      var d = new Date(Date.UTC(+o.year, +o.month - 1, +o.day))
+      return { date: d, min: (+o.hour % 24) * 60 + +o.minute }
+    } catch (e) {
+      var n = new Date()
+      return { date: new Date(Date.UTC(n.getFullYear(), n.getMonth(), n.getDate())), min: n.getHours() * 60 + n.getMinutes() }
+    }
+  }
+  function toMin(hm) { var a = hm.split(':'); return +a[0] * 60 + +a[1] }
+  function dayHours(date) { return cfg.hours[KEYS[date.getUTCDay()]] || null }
+  function addDays(d, n) { return new Date(d.getTime() + n * 864e5) }
+
+  // «Открыто до 21:00» / «Закрыто · откроемся завтра в 09:00»
+  var now = nowAtPlace()
+  var st = document.querySelector('[data-open-status]')
+  if (st && cfg.hours) {
+    var h = dayHours(now.date)
+    var text
+    if (h && now.min >= toMin(h.open) && now.min < toMin(h.close)) {
+      text = 'Открыто сейчас · до ' + h.close
+      st.parentNode.classList.add('is-open')
+    } else if (h && now.min < toMin(h.open)) {
+      text = 'Сегодня с ' + h.open + ' до ' + h.close
+    } else {
+      for (var i = 1; i <= 7; i++) {
+        var nh = dayHours(addDays(now.date, i))
+        if (nh) { text = 'Закрыто · откроемся ' + (i === 1 ? 'завтра' : WD[addDays(now.date, i).getUTCDay()]) + ' в ' + nh.open; break }
+      }
+    }
+    if (text) st.textContent = text
+  }
+  var todayLi = document.querySelector('[data-hours] [data-wd~="' + KEYS[now.date.getUTCDay()] + '"]')
+  if (todayLi) todayLi.classList.add('is-today')
+
+  // Переключатель «радиус / класс машины» в ценах
+  var svc = document.querySelector('[data-svc]')
+  var seg = document.querySelector('[data-seg]')
+  function setCol(id, from) {
+    if (svc) svc.setAttribute('data-active', id)
+    if (seg) seg.querySelectorAll('.seg-btn').forEach(function (b) { b.setAttribute('aria-checked', String(b.dataset.col === id)) })
+    if (from !== 'form') {
+      var r = document.querySelector('.book-form input[name="col"][value="' + id + '"]')
+      if (r) { r.checked = true; updateSum() }
+    }
+  }
+  if (seg) {
+    seg.addEventListener('click', function (e) {
+      var b = e.target.closest('.seg-btn'); if (b) setCol(b.dataset.col)
+    })
+    seg.addEventListener('keydown', function (e) {
+      if (e.key !== 'ArrowRight' && e.key !== 'ArrowLeft') return
+      var bs = [].slice.call(seg.querySelectorAll('.seg-btn'))
+      var i = bs.indexOf(document.activeElement); if (i < 0) return
+      var n = bs[(i + (e.key === 'ArrowRight' ? 1 : bs.length - 1)) % bs.length]
+      n.focus(); setCol(n.dataset.col); e.preventDefault()
+    })
+  }
+
+  // Нижняя панель на телефоне — когда первый экран уже прокручен
+  var dock = document.querySelector('[data-dock]')
+  var hero = document.querySelector('.hero')
+  var book = document.getElementById('book')
+  if (dock && hero && 'IntersectionObserver' in window) {
+    var heroVis = true, bookVis = false
+    var sync = function () {
+      var show = !heroVis && !bookVis
+      dock.classList.toggle('is-on', show)
+      dock.setAttribute('aria-hidden', String(!show))
+      dock.querySelectorAll('a').forEach(function (a) { a.tabIndex = show ? 0 : -1 })
+    }
+    new IntersectionObserver(function (es) { heroVis = es[0].isIntersecting; sync() }, { threshold: 0.05 }).observe(hero)
+    if (book) new IntersectionObserver(function (es) { bookVis = es[0].isIntersecting; sync() }).observe(book)
+  }
+
+  // Заявка
+  var form = document.querySelector('[data-book]')
+  var sum = document.querySelector('[data-sum]')
+  var status = document.querySelector('[data-status]')
+
+  function chosen() {
+    var fd = new FormData(form)
+    var s = cfg.services[+fd.get('svc') || 0]
+    var colId = fd.get('col')
+    var col = cfg.cols.filter(function (c) { return c.id === colId })[0]
+    var price = s.prices && colId ? s.prices[colId] : s.price
+    var dayOpt = form.querySelector('[data-days]').selectedOptions[0]
+    return {
+      s: s, col: s.prices ? col : null,
+      price: price != null ? (s.from ? 'от ' : '') + rub(price) : null,
+      day: fd.get('day') ? dayOpt.textContent : '',
+      time: fd.get('time') || '',
+      name: (fd.get('name') || '').trim(),
+      car: (fd.get('car') || '').trim(),
+    }
+  }
+  function updateSum() {
+    if (!form || !sum) return
+    var c = chosen()
+    form.querySelector('.f-col') && (form.querySelector('.f-col').hidden = !c.s.prices)
+    sum.innerHTML = ''
+    var a = document.createElement('span'); a.className = 'sum-l'
+    a.textContent = c.s.name + (c.col ? ', ' + c.col.label : '')
+    var b = document.createElement('strong'); b.className = c.price ? 'sum-p' : 'sum-p sum-p--ask'
+    b.textContent = c.price || 'цену уточнит мастер'
+    sum.appendChild(a); sum.appendChild(b)
+  }
+  function message(c) {
+    var lines = ['Здравствуйте! Хочу записаться в «' + cfg.name + '».']
+    lines.push('Услуга: ' + c.s.name + (c.col ? ', ' + c.col.label : '') + (c.price ? ' (' + c.price + ' по сайту)' : ''))
+    var when = c.day ? c.day + (c.time ? ', около ' + c.time : '') : c.time ? 'ближайший день, около ' + c.time : 'в ближайшее свободное время'
+    lines.push('Когда: ' + when)
+    if (c.car) lines.push('Машина / комментарий: ' + c.car)
+    if (c.name) lines.push('Меня зовут ' + c.name + '.')
+    return lines.join('\n')
+  }
+
+  if (form) {
+    // Дни: ближайшие 10 рабочих дней по графику точки
+    var daySel = form.querySelector('[data-days]')
+    var timeSel = form.querySelector('[data-times]')
+    for (var d = 0, added = 0; d < 21 && added < 10; d++) {
+      var date = addDays(now.date, d)
+      var hh = dayHours(date)
+      if (!hh) continue
+      if (d === 0 && now.min > toMin(hh.close) - 60) continue
+      var label = (d === 0 ? 'Сегодня' : d === 1 ? 'Завтра' : WD[date.getUTCDay()].replace(/^./, function (x) { return x.toUpperCase() })) +
+        ', ' + date.getUTCDate() + ' ' + MONTHS[date.getUTCMonth()]
+      var o = new Option(label, String(d)); daySel.appendChild(o); added++
+    }
+    function fillTimes() {
+      var keep = timeSel.value
+      timeSel.length = 1
+      var dIdx = daySel.value === '' ? null : +daySel.value
+      var hrs = dIdx == null ? null : dayHours(addDays(now.date, dIdx))
+      var from = hrs ? toMin(hrs.open) : 9 * 60, to = hrs ? toMin(hrs.close) - 30 : 20 * 60
+      if (dIdx === 0) from = Math.max(from, Math.ceil((now.min + 30) / 60) * 60)
+      for (var m = Math.ceil(from / 60) * 60; m <= to; m += 60) {
+        var t = String(Math.floor(m / 60)).padStart(2, '0') + ':00'
+        timeSel.appendChild(new Option(t, t))
+      }
+      if ([].some.call(timeSel.options, function (op) { return op.value === keep })) timeSel.value = keep
+    }
+    fillTimes()
+    daySel.addEventListener('change', fillTimes)
+    form.addEventListener('change', function (e) {
+      if (e.target.name === 'col') setCol(e.target.value, 'form')
+      updateSum()
+    })
+    updateSum()
+
+    // Кнопка «Записаться» у услуги — предвыбирает её в заявке
+    document.addEventListener('click', function (e) {
+      var p = e.target.closest('[data-pick]'); if (!p) return
+      form.querySelector('[name="svc"]').value = p.dataset.pick
+      var act = svc && svc.getAttribute('data-active')
+      var r = act && form.querySelector('input[name="col"][value="' + act + '"]'); if (r) r.checked = true
+      updateSum()
+      setTimeout(function () { form.querySelector('[name="svc"]').focus({ preventScroll: true }) }, 400)
+    })
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault()
+      var via = (e.submitter && e.submitter.value) || cfg.channels[0].id
+      var ch = cfg.channels.filter(function (c) { return c.id === via })[0] || cfg.channels[0]
+      var text = message(chosen())
+      var url
+      if (ch.id === 'wa') url = 'https://wa.me/' + ch.to + '?text=' + encodeURIComponent(text)
+      else if (ch.id === 'tg') url = 'https://t.me/' + ch.to + '?text=' + encodeURIComponent(text)
+      else url = 'sms:' + ch.to + (/iPhone|iPad/.test(navigator.userAgent) ? '&' : '?') + 'body=' + encodeURIComponent(text)
+      // Telegram не всегда подставляет текст в личный чат — кладём его ещё и в буфер обмена.
+      if (ch.id === 'tg' && navigator.clipboard) navigator.clipboard.writeText(text).then(function () {}, function () {})
+      status.textContent = ch.id === 'tg'
+        ? 'Открываем Telegram. Если текст не подставился — вставьте его (он скопирован) и отправьте. Мастер ответит и подтвердит время.'
+        : 'Открываем ' + ch.label + '. Отправьте сообщение — мастер ответит и подтвердит время.'
+      status.classList.add('is-sent')
+      if (ch.id === 'sms') location.href = url
+      else window.open(url, '_blank', 'noopener')
+    })
+  }
+
+  // Карта OpenStreetMap через Leaflet: грузится, только когда посетитель долистал до неё
+  var mapEl = document.querySelector('[data-map]')
+  if (mapEl) {
+    var started = false
+    var startMap = function () {
+      if (started) return; started = true
+      var css = document.createElement('link'); css.rel = 'stylesheet'; css.href = 'vendor/leaflet/leaflet.css'
+      document.head.appendChild(css)
+      var s = document.createElement('script'); s.src = 'vendor/leaflet/leaflet.js'; s.async = true
+      s.onload = function () {
+        var L = window.L, lat = +mapEl.dataset.lat, lng = +mapEl.dataset.lng
+        var coarse = window.matchMedia('(pointer: coarse)').matches
+        mapEl.innerHTML = ''
+        var m = L.map(mapEl, { center: [lat, lng], zoom: 16, scrollWheelZoom: false, dragging: !coarse, tap: false, attributionControl: true })
+        m.attributionControl.setPrefix(false)
+        L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+          maxZoom: 19,
+          attribution: '© <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">участники OpenStreetMap</a>',
+        }).addTo(m)
+        var pin = L.divIcon({
+          className: 'pin',
+          html: '<span class="pin-in"><b>' + ((document.querySelector('.brand-mark') || {}).textContent || '') + '</b></span>',
+          iconSize: [48, 58], iconAnchor: [24, 56],
+        })
+        L.marker([lat, lng], { icon: pin, keyboard: false, title: cfg.name }).addTo(m)
+        if (coarse) {
+          // На телефоне карта не перехватывает прокрутку страницы: двигать — после касания
+          mapEl.classList.add('is-locked')
+          mapEl.addEventListener('click', function () { m.dragging.enable(); mapEl.classList.remove('is-locked') }, { once: true })
+        }
+      }
+      document.body.appendChild(s)
+    }
+    if ('IntersectionObserver' in window) {
+      var mo = new IntersectionObserver(function (es) { if (es[0].isIntersecting) { startMap(); mo.disconnect() } }, { rootMargin: '400px' })
+      mo.observe(mapEl)
+    } else startMap()
+  }
+
+  // Плавная прокрутка только если посетитель не просил меньше движения
+  if (window.matchMedia('(prefers-reduced-motion: no-preference)').matches) document.documentElement.classList.add('smooth')
+})()
+</script>
+</body>
+</html>
