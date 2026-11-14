@@ -125,6 +125,15 @@ font: 700 16px/1 var(--font-b); text-decoration: none; cursor: pointer; transiti
 .hero-media { container-type: inline-size; margin: 0; position: relative; border-radius: var(--r-lg); overflow: hidden; aspect-ratio: 4 / 3; background: var(--graphite); box-shadow: 0 30px 60px -30px rgba(23,28,37,.45); }
 .hero-media img { width: 100%; height: 100%; object-fit: cover; object-position: var(--focus, 50% 50%); }
 .hero-media::after { content: ''; position: absolute; inset: 0; border-radius: inherit; box-shadow: inset 0 0 0 1px rgba(255,255,255,.08); pointer-events: none; }
+.hero--cutout { background: radial-gradient(80% 60% at 78% 62%, #ffffff 0%, var(--bg) 62%); }
+.hero-cutout { background: none; box-shadow: none; border-radius: 0; overflow: visible; aspect-ratio: auto; margin: 0 -8px; isolation: isolate; }
+.hero-cutout::after { display: none; }
+.hero-cutout img { position: relative; width: 100%; height: auto; object-fit: contain; }
+.cutout-shadow { position: absolute; left: 4%; right: 2%; bottom: 1%; height: 12%; border-radius: 50%; background: radial-gradient(closest-side, rgba(0,0,0,.42), transparent); filter: blur(8px); }
+@media (prefers-reduced-motion: no-preference) {
+.hero-cutout { animation: car-glide 1.6s cubic-bezier(.16,.84,.3,1) .25s both; }
+}
+@keyframes car-glide { from { transform: translateX(12%) scale(.92); opacity: 0; } 30% { opacity: 1; } to { transform: none; opacity: 1; } }
 .hero-art {
 background:
 radial-gradient(120% 90% at 85% 15%, color-mix(in srgb, var(--accent) 55%, transparent) 0%, transparent 55%),
@@ -170,6 +179,31 @@ repeating-conic-gradient(from 0deg, #1a212c 0 12deg, transparent 12deg 24deg);
 -webkit-mask: radial-gradient(circle, #000 0 69%, transparent 69.5%); mask: radial-gradient(circle, #000 0 69%, transparent 69.5%);
 box-shadow: none; filter: drop-shadow(0 40px 60px rgba(0,0,0,.55));
 }
+.hero-art--car {
+background:
+radial-gradient(90% 60% at 70% 20%, color-mix(in srgb, var(--accent) 40%, transparent) 0%, transparent 60%),
+linear-gradient(180deg, #1b212b 0%, #121720 62%, #0b0e13 62.2%, #0f131a 100%);
+}
+.hero-art--car::before {
+content: ''; position: absolute; left: 0; right: 0; bottom: 0; height: 38%;
+background: linear-gradient(180deg, rgba(255,255,255,.06), transparent 40%),
+repeating-linear-gradient(90deg, transparent 0 46px, rgba(255,255,255,.03) 46px 48px);
+}
+.hero-art--car .art-word { bottom: auto; top: 8%; z-index: 0; }
+.car-stage { position: absolute; left: 0; right: 0; bottom: 4%; z-index: 1; }
+.car { display: block; width: 124%; margin-left: -10%; height: auto; overflow: visible; }
+.car .wheel { transform-box: fill-box; transform-origin: center; }
+.car .car-body { transform-box: fill-box; transform-origin: 20% 100%; }
+@media (prefers-reduced-motion: no-preference) {
+.car .car-drive { animation: car-in 1.6s cubic-bezier(.12,.8,.26,1) .45s both; }
+.car .wheel { animation: wheel-in 1.6s cubic-bezier(.12,.8,.26,1) .45s both; }
+.car .car-body { animation: car-dip .7s ease-out 1.85s both; }
+.car .car-lamp { animation: lamp-on .9s ease-out 1.9s both; }
+}
+@keyframes car-in { from { transform: translateX(-1150px); } to { transform: translateX(0); } }
+@keyframes wheel-in { from { transform: rotate(-1000deg); } to { transform: rotate(0); } }
+@keyframes car-dip { 0% { transform: rotate(0); } 30% { transform: rotate(.9deg); } 65% { transform: rotate(-.25deg); } 100% { transform: rotate(0); } }
+@keyframes lamp-on { 0% { opacity: .5; } 40% { opacity: 1; filter: drop-shadow(0 0 14px #cfe0ff); } 100% { opacity: 1; filter: drop-shadow(0 0 6px #cfe0ff); } }
 .art-word {
 position: absolute; left: 6%; bottom: 6%; font: 700 14cqw/.9 var(--font-h); text-transform: uppercase; white-space: nowrap;
 color: transparent; -webkit-text-stroke: 1.5px rgba(245,247,252,.34); letter-spacing: .01em;
@@ -326,6 +360,7 @@ transform: translateY(110%); transition: transform .25s ease; visibility: hidden
 .hero-in { grid-template-columns: 1.05fr .95fr; align-items: center; gap: var(--s7); }
 .hero-media { aspect-ratio: 4 / 5; }
 .hero--art .hero-media { aspect-ratio: 1 / 1.05; }
+.hero-cutout { aspect-ratio: auto; margin: 0 -40px 0 0; }
 .sec { padding: var(--s9) 0; }
 .sec-tight { padding: var(--s8) 0; }
 .facts { grid-template-columns: repeat(3, 1fr); }
@@ -376,7 +411,7 @@ transform: translateY(110%); transition: transform .25s ease; visibility: hidden
 </header>
 
 <main id="main">
-<section class="hero hero--art" aria-labelledby="hero-h">
+<section class="hero hero--cutout" aria-labelledby="hero-h">
   <div class="wrap hero-in">
     <div class="hero-copy">
       <p class="hero-kicker"><span class="dot" aria-hidden="true"></span>Автосервис · Екатеринбург</p>
@@ -392,10 +427,10 @@ transform: translateY(110%); transition: transform .25s ease; visibility: hidden
         <li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg><span data-open-status>Пн–Пт: 09:00–20:00</span></li>
       </ul>
     </div>
-    <figure class="hero-media hero-art hero-art--gear" aria-hidden="true">
-    <div class="art-ring"></div>
-    <span class="art-word">Автосервис</span>
-  </figure>
+    <figure class="hero-media hero-cutout">
+      <span class="cutout-shadow" aria-hidden="true"></span>
+      <img src="photos/g-class-black.webp" srcset="photos/g-class-black-800.webp 800w, photos/g-class-black.webp 1400w" sizes="(min-width: 900px) 55vw, 100vw" alt="Чёрный внедорожник" width="1400" height="851" fetchpriority="high">
+    </figure>
   </div>
 </section>
 
